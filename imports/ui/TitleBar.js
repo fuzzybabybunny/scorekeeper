@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 export default class TitleBar extends React.Component{
@@ -8,7 +7,7 @@ export default class TitleBar extends React.Component{
 		return (
 			<div>
 				<h1>{this.props.title}</h1>
-				<h2>{this.props.subtitle}</h2>
+				{this.props.subtitle ? <h2>{this.props.subtitle}</h2> : null}
 			</div>
 		);		
 	}
@@ -22,5 +21,4 @@ TitleBar.propTypes = {
 
 TitleBar.defaultProps = {
 	title: 'Default Title',
-	subtitle: 'Default Subtitle'
 };

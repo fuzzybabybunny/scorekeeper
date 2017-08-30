@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Players} from '/imports/api/players';
 
 export default class AddPlayer extends React.Component{
