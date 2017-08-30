@@ -8,13 +8,13 @@ Meteor.startup(function(){
 
 	const playersArray = [{
 		name: 'Fred',
-		score: 22
+		score: 1
 	},{
 		name: 'Tom',
-		score: -83
+		score: 2
 	},{
 		name: 'Susan',
-		score: 100
+		score: -1
 	}];
 
 	playersArray.forEach(doc => {

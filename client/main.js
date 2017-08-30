@@ -10,7 +10,11 @@ Meteor.startup(() => {
 
 	Tracker.autorun(() => {
 		Meteor.subscribe('players');
-		let players = Players.find().fetch();
+		let players = Players.find({},{
+			sort: {
+				score: -1
+			}
+		}).fetch();
 		let title = "ScoreKeeper!";
 		ReactDOM.render(<App players={players} title={title} />, document.getElementById('app'));
 	});
