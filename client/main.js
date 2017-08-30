@@ -16,7 +16,8 @@ Meteor.startup(() => {
 			}
 		}).fetch();
 		let title = "ScoreKeeper!";
-		ReactDOM.render(<App players={players} title={title} />, document.getElementById('app'));
+		let subtitle = "Created by XYZ";
+		ReactDOM.render(<App players={players} title={title} subtitle={subtitle} />, document.getElementById('app'));
 	});
 
 });
