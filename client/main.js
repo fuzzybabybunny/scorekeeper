@@ -7,8 +7,20 @@ import {Players} from './../imports/api/players';
 
 const renderPlayers = function(playersList){
 	return jsxList = playersList.map(function(player){
-		return <p key={player._id}>{player.name} has {player.score} points.</p>;
+		return <p key={player._id}>{player.name} has {player.score} point(s).</p>;
 	});
+};
+
+const handleSubmit = function(e){
+	e.preventDefault();
+	let playerName = e.target.playerName.value;
+	if(playerName){
+		e.target.playerName.value = '';
+		Players.insert({
+			name: playerName,
+			score: 0
+		});
+	};
 };
 
 Meteor.startup(function(){
@@ -24,6 +36,10 @@ Meteor.startup(function(){
 				<h1>{title}</h1>
 				<p>Hello, {name}!</p>
 				<p>Second paragraph.</p>
+				<form onSubmit={handleSubmit}>
+					<input type="text" name="playerName" placeholder="Player Name"/>
+					<button>Add Player</button>
+				</form>
 				{renderPlayers(players)}
 			</div>
 		);
@@ -31,8 +47,4 @@ Meteor.startup(function(){
 
 	});
 
-	Players.insert({
-		name: 'Ted',
-		score: 13
-	});
 });
