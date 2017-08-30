@@ -25,4 +25,4 @@ Meteor.startup(function(){
 		return Players.find();
 	});
 
-});
+}); 

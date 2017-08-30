@@ -11,3 +11,18 @@
 	font-weight: 300;
 	text-align: center;
 }
+
+.item--position-1 {
+	background: $gold;
+	border-color: $gold-alt;
+}
+
+.item--position-2 {
+	background: $silver;
+	border-color: $silver-alt;
+}
+
+.item--position-3 {
+	background: $bronze;
+	border-color: $bronze-alt;
+}
