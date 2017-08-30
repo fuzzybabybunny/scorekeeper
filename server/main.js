@@ -21,10 +21,12 @@ Meteor.startup(function(){
 		Players.insert(doc);
 	})
 
-	console.log(Players.find().fetch());
-
 	Meteor.publish('players', function(){
 		return Players.find();
 	});
 
+	let numbers = [32, 4, 4, 342];
+	let newNumbers = numbers.map((item) => item + 1);
+
+	console.log(newNumbers);
 });

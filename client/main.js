@@ -5,13 +5,21 @@ import {Mongo} from 'meteor/mongo';
 import {Tracker} from 'meteor/tracker';
 import {Players} from './../imports/api/players';
 
-const renderPlayers = function(playersList){
-	return jsxList = playersList.map(function(player){
-		return <p key={player._id}>{player.name} has {player.score} point(s).</p>;
+const renderPlayers = (playersList) => {
+	return jsxList = playersList.map( (player) => {
+		return (
+			<p key={player._id}>
+				{player.name} has {player.score} point(s).
+				<button onClick={() => Players.remove(player._id)}>X</button>
+				<button onClick={() => {
+					Players.update(player._id, {$inc: {score: 1}})
+				}}>+</button>
+			</p>
+		);
 	});
 };
 
-const handleSubmit = function(e){
+const handleSubmit = (e) => {
 	e.preventDefault();
 	let playerName = e.target.playerName.value;
 	if(playerName){
@@ -23,9 +31,9 @@ const handleSubmit = function(e){
 	};
 };
 
-Meteor.startup(function(){
+Meteor.startup(() => {
 
-	Tracker.autorun(function(){
+	Tracker.autorun(() => {
 		Meteor.subscribe('players');
 		let title = "ScoreKeeper!";
 		let name = 'Victor';
